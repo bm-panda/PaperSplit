@@ -1,0 +1,47 @@
+[bmscriptsbox]
+
+[bmscriptsbox.info]
+id = "93ecafa7-7e25-458d-a9c9-e5b2eed4b2e9"
+name = "A3试卷分割A4"
+desc = "A3试卷/文档拆分为A4 | 支持 A3 PDF 与 JPG/PNG 图片、可视化红色分割线、密封线智能识别去除(奇左偶右)、同类页/全部页批量应用、标准A4等比留白/拉伸填满/原始裁剪三种导出 | 右键试卷一键打开，高清导出 A4 PDF 到源文件目录"
+icon = "imgs/logo.png"
+version = "1.0.0"
+
+[bmscriptsbox.runtime]
+language = "node.js"
+language_version = ">=v18.0"
+entry = "main.js"
+terminal = "never"
+binaries = [{name = "webview-cli"}]
+
+[bmscriptsbox.triggers.context_menu]
+enabled = true
+targets = ["files"]
+filters = [".pdf", ".jpg", ".jpeg", ".png"]
+
+[bmscriptsbox.triggers.shortcut]
+enabled = true
+input_type = "files"
+filters = [".pdf", ".jpg", ".jpeg", ".png"]
+
+[[bmscriptsbox.inputs]]
+name = "target_paths"
+label = "试卷"
+type = "list"
+pick = "files"
+exts = [".pdf", ".jpg", ".jpeg", ".png"]
+description = "要拆分的 A3 试卷或文档（PDF 或图片）"
+
+[[bmscriptsbox.params]]
+name = "output_dir"
+label = "输出目录"
+type = "str"
+default = ""
+description = "默认输出目录；留空则用窗口内所选目录（会记住）或源文件所在目录"
+
+[[bmscriptsbox.params]]
+name = "suffix"
+label = "文件名后缀"
+type = "str"
+default = "(A4)"
+description = "输出文件名在原名后追加的后缀"

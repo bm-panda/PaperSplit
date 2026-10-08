@@ -1,0 +1,12 @@
+{
+  "name": "paper-split",
+  "version": "1.0.0",
+  "description": "A3 试卷/文档拆分为 A4 的工具（不忙脚本盒子版）",
+  "private": true,
+  "type": "module",
+  "main": "main.js",
+  "engines": {
+    "node": ">=18.0"
+  },
+  "dependencies": {}
+}
